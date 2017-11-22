@@ -7,12 +7,12 @@ package napoli.baldomero.petoperation.pojo;
 public class Pets {
     private String name;
     private int photo;
-    private int like;
+    private int rating;
 
     public Pets(String name, int photo){
         this.name = name;
         this.photo = photo;
-        this.like = 0;
+        this.rating = 0;
     }
 
     public String getName() {
@@ -24,11 +24,11 @@ public class Pets {
     }
 
     public int getLike() {
-        return like;
+        return rating;
     }
 
-    public void setLike(int like) {
-        this.like = like;
+    public void setLike(int rating) {
+        this.rating = rating;
     }
 
     public int getPhoto() {
