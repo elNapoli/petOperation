@@ -22,24 +22,29 @@
             android:scaleType="centerCrop"
             android:src="@drawable/elefante" />
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/mb_20"
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_alignParentLeft="true">
                 <ImageView
                     android:id="@+id/ivBoneOn"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="@dimen/bone"
+                    android:layout_height="@dimen/bone"
                     android:src="@drawable/animals_dog_bone_icon"/>
                 <TextView
                     android:id="@+id/tvName"
                     android:layout_width="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_height="wrap_content"
-                    android:text="@string/name_pet"/>
+                    android:text="@string/name_pet"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:textSize="@dimen/mb_20"/>
 
 
             </LinearLayout>
@@ -48,23 +53,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_gravity="right">
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginRight="@dimen/mb_20"
+                android:layout_alignParentRight="true">
 
                 <TextView
                     android:id="@+id/tvRating"
                     android:layout_width="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margin_10"
+
                     android:text="@string/rating"/>
                 <ImageView
                     android:id="@+id/ivBoneOff"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/animals_dog_bone_icon"/>
+                    android:layout_width="@dimen/bone"
+                    android:layout_height="@dimen/bone"
+                    android:src="@drawable/bone_off"/>
 
             </LinearLayout>
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 

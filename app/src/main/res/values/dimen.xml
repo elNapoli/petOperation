@@ -2,6 +2,8 @@
 <resources>
     <dimen name="mb_20">20dp</dimen>
     <dimen name="rcv_5">5dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="bone">30dp</dimen>
     <dimen name="name_profile">20sp</dimen>
     <dimen name="margin_15">15dp</dimen>
 </resources>
