@@ -40,15 +40,26 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
         final Pets mascota = misMascotas.get(position);
         petViewHolder.ivProfile.setImageResource(mascota.getPhoto());
         petViewHolder.tvName.setText(mascota.getName());
-        petViewHolder.tvRating.setText(String.valueOf( mascota.getLike()));
+        petViewHolder.tvRating.setText(String.valueOf( mascota.getRating()));
 
         petViewHolder.ivBoneOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mascota.setLike(mascota.getLike()+1);
+                if(mascota.getIsLike()){
+                    mascota.setRating(mascota.getRating()-1);
+                    petViewHolder.ivBoneOn.setImageResource(R.drawable.animals_dog_bone_icon);
+                    Toast.makeText(mContext, v.getResources().getString(R.string.un_like)+" "+ mascota.getName(), Toast.LENGTH_SHORT).show();
+                    petViewHolder.tvRating.setText(String.valueOf( mascota.getRating()));
+                    mascota.setIsLike(false);
+                }
+                else{
+                    mascota.setRating(mascota.getRating()+1);
+                    petViewHolder.ivBoneOn.setImageResource(R.drawable.bone_dog);
+                    Toast.makeText(mContext, v.getResources().getString(R.string.like)+" "+ mascota.getName(), Toast.LENGTH_SHORT).show();
+                    petViewHolder.tvRating.setText(String.valueOf( mascota.getRating()));
+                    mascota.setIsLike(true);
+                }
 
-                Toast.makeText(mContext, v.getResources().getString(R.string.like)+" "+ mascota.getName(), Toast.LENGTH_SHORT).show();
-                petViewHolder.tvRating.setText(String.valueOf( mascota.getLike()));
 
             }
         });

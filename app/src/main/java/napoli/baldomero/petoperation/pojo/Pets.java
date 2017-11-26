@@ -10,6 +10,9 @@ public class Pets {
     private String name;
     private int photo;
     private int rating;
+    private boolean isLike;
+
+
 
     public Pets(String name, int photo){
         this.name = name;
@@ -17,7 +20,15 @@ public class Pets {
         Random r = new Random();
         int lowerBound = 1;
         int upperBound = 11;
-        this.rating = r.nextInt(upperBound-lowerBound) + lowerBound;;
+        this.rating = r.nextInt(upperBound-lowerBound) + lowerBound;
+        this.isLike = false;
+    }
+    public boolean getIsLike() {
+        return isLike;
+    }
+
+    public void setIsLike(boolean isLike) {
+        this.isLike = isLike;
     }
 
     public String getName() {
@@ -28,11 +39,11 @@ public class Pets {
         this.name = name;
     }
 
-    public int getLike() {
+    public int getRating() {
         return rating;
     }
 
-    public void setLike(int rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
 
