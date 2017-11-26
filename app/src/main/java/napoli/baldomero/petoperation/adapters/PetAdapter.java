@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -21,9 +22,11 @@ import napoli.baldomero.petoperation.pojo.Pets;
 public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
 
     ArrayList<Pets> misMascotas;
+    private Context mContext;
 
-    public PetAdapter(ArrayList<Pets> misMascotas){
+    public PetAdapter(Context mContext, ArrayList<Pets> misMascotas){
         this.misMascotas = misMascotas;
+        this.mContext = mContext;
     }
 
     @Override
@@ -33,11 +36,23 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(PetViewHolder petViewHolder, int position) {
-        Pets mascota = misMascotas.get(position);
+    public void onBindViewHolder(final PetViewHolder petViewHolder, int position) {
+        final Pets mascota = misMascotas.get(position);
         petViewHolder.ivProfile.setImageResource(mascota.getPhoto());
         petViewHolder.tvName.setText(mascota.getName());
         petViewHolder.tvRating.setText(String.valueOf( mascota.getLike()));
+
+        petViewHolder.ivBoneOn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mascota.setLike(mascota.getLike()+1);
+
+                Toast.makeText(mContext, v.getResources().getString(R.string.like)+" "+ mascota.getName(), Toast.LENGTH_SHORT).show();
+                petViewHolder.tvRating.setText(String.valueOf( mascota.getLike()));
+
+            }
+        });
+
     }
 
     @Override
@@ -50,12 +65,14 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
         private ImageView ivProfile;
         private TextView tvName;
         private TextView tvRating;
+        private ImageView  ivBoneOn;
 
         public PetViewHolder(View itemView) {
             super(itemView);
             ivProfile = (ImageView) itemView.findViewById(R.id.ivProfile);
             tvName = (TextView) itemView.findViewById(R.id.tvName);
             tvRating = (TextView) itemView.findViewById(R.id.tvRating);
+            ivBoneOn = (ImageView) itemView.findViewById(R.id.ivBoneOn);
         }
     }
 }

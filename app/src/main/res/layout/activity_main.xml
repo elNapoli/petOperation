@@ -4,11 +4,14 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     >
+<include android:id="@+id/actionBar" layout="@layout/actionbar">
 
+</include>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rvPet"/>
+        android:id="@+id/rvPet"
+        android:layout_below="@+id/actionBar"/>
 
 
 </RelativeLayout>
