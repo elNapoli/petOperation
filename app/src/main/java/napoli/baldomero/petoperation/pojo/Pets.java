@@ -1,5 +1,7 @@
 package napoli.baldomero.petoperation.pojo;
 
+import java.util.Random;
+
 /**
  * Created by elnapoli on 21-11-17.
  */
@@ -12,7 +14,10 @@ public class Pets {
     public Pets(String name, int photo){
         this.name = name;
         this.photo = photo;
-        this.rating = 0;
+        Random r = new Random();
+        int lowerBound = 1;
+        int upperBound = 11;
+        this.rating = r.nextInt(upperBound-lowerBound) + lowerBound;;
     }
 
     public String getName() {
