@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar actionBar = (Toolbar) findViewById(R.id.actionBar);
 
-
+        setSupportActionBar(actionBar);
         rvPet = (RecyclerView) findViewById(R.id.rvPet);
         initPets();
         miAdapter = new PetAdapter(this,misMascotas);
